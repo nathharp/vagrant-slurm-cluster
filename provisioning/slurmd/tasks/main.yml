@@ -1,2 +1,4 @@
 ---
 # tasks file for slurm-compute
+- include: install-slurm.yml
+- include: mount-nfs.yml

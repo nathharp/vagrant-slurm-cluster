@@ -1,0 +1,3 @@
+---
+- name: mount /data to the compute nodes
+  mount: name=/data fstype=nfs  src=head:/data state=mounted

@@ -9,3 +9,8 @@
   become_user: root
   roles:
     - nfsserver
+- hosts: comp*
+  become: true
+  become_user: root
+  roles:
+    - slurmd
