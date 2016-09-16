@@ -1,0 +1,4 @@
+---
+- name: install the EPEL release from CentOS repos
+  yum: name=epel-release state=installed
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
