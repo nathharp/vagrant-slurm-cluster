@@ -9,6 +9,9 @@ Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :machine
   end
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+  end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
@@ -21,8 +24,6 @@ Vagrant.configure(2) do |config|
   (1..4).each do |i|
     config.vm.define "comp-#{i}" do |node|
       node.vm.box = "bento/centos-7.2"
-      node.vm.provision "shell",
-        inline: "echo hello from node #{i}"
     end
   end
 
