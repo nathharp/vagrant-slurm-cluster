@@ -1,0 +1,5 @@
+---
+# tasks file for common
+
+  - include: localrepo.yml
+  - include: ntp.yml

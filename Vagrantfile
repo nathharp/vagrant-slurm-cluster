@@ -11,6 +11,7 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
+    ansible.verbose = true
   end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -21,8 +22,8 @@ Vagrant.configure(2) do |config|
   config.vm.define "head" do |head|
     head.vm.box = "bento/centos-7.2"
   end
-  (1..4).each do |i|
-    config.vm.define "comp-#{i}" do |node|
+  (1..1).each do |i|
+    config.vm.define "comp#{i}" do |node|
       node.vm.box = "bento/centos-7.2"
     end
   end

@@ -1,0 +1,8 @@
+---
+  - name: Add local yum repository
+    yum_repository:
+      name: localrepo
+      description: local EL7 yum repository
+      baseurl:  file:///vagrant/repo/el7/x86_64
+      gpgcheck: no
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
