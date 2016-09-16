@@ -13,6 +13,9 @@ Vagrant.configure(2) do |config|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.verbose = true
   end
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
@@ -21,10 +24,12 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.define "head" do |head|
     head.vm.box = "bento/centos-7.2"
+    head.vm.hostname = "head"
   end
   (1..1).each do |i|
     config.vm.define "comp#{i}" do |node|
       node.vm.box = "bento/centos-7.2"
+      node.vm.hostname = "comp#{i}"
     end
   end
 
