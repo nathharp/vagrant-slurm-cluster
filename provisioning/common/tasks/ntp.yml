@@ -1,5 +1,5 @@
 ---
-  - name: ensure ntpd is at  version
+  - name: ensure ntpd is at the most recent version
     yum: pkg=ntp state=present
     notify:
     - restart ntpd

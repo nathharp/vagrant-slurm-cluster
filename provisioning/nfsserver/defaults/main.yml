@@ -1,2 +1,2 @@
 ---
-# defaults file for nfsserver
+nfs_exports: { "/data *(rw,sync,no_root_squash)" }
